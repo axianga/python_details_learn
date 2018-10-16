@@ -2,7 +2,7 @@
     try:
         r = request.get(url)
     except Exception as er:
-       print('错误内容为：'+er)
+        print('错误内容为：'+er)
     
  查看模块使用方法
     1.使用帮助文件
