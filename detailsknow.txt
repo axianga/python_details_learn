@@ -1,0 +1,51 @@
+ 请求网页，防止出现获取失败导致程序中断，Exception是错误内容
+    try:
+        r = request.get(url)
+    except Exception as er:
+       print('错误内容为：'+er)
+    
+ 查看模块使用方法
+    1.使用帮助文件
+    2.上网查看官网或搜索
+    3.help()
+    4.查看python安装文件夹下的lib文件夹里的原代码文件
+   
+   
+ 
+ urllib 库
+    urllib.error可以接收有urllib.request产生的异常。urllib.error有两个方法，URLError和HTTPError,HTTPError是URLError的子类。
+    HTTPError：会返回错误相应的代码。类似request访问成功返回200，返回错误也是有相应的代码，例如常见的404错误。
+    导入方式：import urllib     //  from urllib import request, parse         //...
+    请求读取数据：request.urlopen(url).read() 
+    伪装头：request.Request(url).add_header('User-Agent','Mozilla/5.0...')
+    获取头文件：request.urlopen(url).getheaders()
+    读取并解码：request.urlopen(url).read().decode('utf-8')
+    
+  Regular Exception 库 (re)
+    常用匹配功能：   大写是相反功能
+        \w: A-Za-z0-92
+        \d: 0-9
+        \s: 空白字符：[\t\f\r\v\n]
+        [abc]:  或a或b或c
+        .：  除换行符\n任意字符一个    *:  重复0次或多次   +:重复1次或多次   ？： 重复0次或1次
+        ^:  开始位置 //在[]里表示非   $:  结束位置
+        a{n} ：重复a字母n次   a{n:m}: 重复a字母n-m次
+        |： aa|bb意思是aa或则bb
+        \:  转义字符，使后一个字符表示为字符，不产生功能。\\,表示1个\
+        
+     模式修正符：   用法：re.search(pat,string,re.I)
+        I:  忽略大小写
+        M:  多行匹配
+        L:  本地化标识匹配
+        U:  根据Unicode字符解析
+        S:  .匹配换行符
+        
+    常用功能： re.search(pat,string)   re.match(pat,string)    re.findall(pat,string)
+    re.search():  匹配到的值只返回第一个
+    re.match(): 于匹配值需从第一个开始匹配，无法匹配到中间的一样的值。
+    re.compile()：python代码最终会被编译为字节码，之后才被解释器执行。在模式匹配之前，正在表达式
+                  模式必须先被编译成regex对象，预先编译可以提高性能，re.compile()就是用于提供此功能。
+    re.findall(pat,string):   返回所有值
+    re.compile(pat).findall(string)：  返回匹配的所有结果
+    
+    
